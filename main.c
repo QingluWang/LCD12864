@@ -79,8 +79,10 @@ void Init(){
     pinMode(LCD_RS, OUTPUT);    
     pinMode(LCD_RW, OUTPUT);    
     pinMode(LCD_EN, OUTPUT);
-    WriteCmd(0x38);
-    delay(20);
+    WriteCmd(0x30);
+    delay(5);
+    WriteCmd(0x30);
+    delay(5);
     WriteCmd(0x01);
     delay(20);
     WriteCmd(0x0c);
