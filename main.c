@@ -90,7 +90,7 @@ void Init(){
     WriteCmd(0x01);
     delay(20);
     ChkBusy();
-    WriteCmd(0x0c);
+    //WriteCmd(0x0c);
     delay(20);
 }
 int main(){
