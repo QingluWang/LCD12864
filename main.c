@@ -47,21 +47,23 @@ void WriteCmd(u8 cmdCode){
     delay(5);
 }
 void WriteData(u8 dispData){
+    printf("1\n");
     ChkBusy();
+    printf("2\n");
     digitalWrite(LCD_RS,ENABLE);
     digitalWrite(LCD_RW,DISABLE);
     digitalWrite(LCD_EN,ENABLE);
+    printf("3\n");
     delay(5);
     BusWrite(dispData);
+    printf("4\n");
     digitalWrite(LCD_EN,DISABLE);
     delay(5);
 }
 void WriteWord(u8 pos,unsigned char* data){
     WriteCmd(pos);
-    if(*data > 0);
-        printf("%c\n",*data);
     while(*data > 0){
-        //WriteData(*data);
+        WriteData(*data);
         data++;
     }
 }
