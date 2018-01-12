@@ -58,6 +58,7 @@ void WriteData(u8 dispData){
 }
 void WriteWord(u8 pos,unsigned char* data){
     WriteCmd(pos);
+    printf("nmd\n");
     while(*data > 0){
         WriteData(*data);
         data++;
@@ -83,7 +84,6 @@ void Init(){
     delay(20);
 }
 int main(){
-    printf("0");
     wiringPiSetup();
     Init();
 
