@@ -89,10 +89,10 @@ void Init(){
 }
 int main(){
     printf("0");
-    wiringPiSetup();
-    Init();
+    //wiringPiSetup();
+    //Init();
 
-    WriteCmd(0x01);
-    WriteWord(0x80,"Hello,wql");
+    //WriteCmd(0x01);
+    //WriteWord(0x80,"Hello,wql");
     return 0;
 }

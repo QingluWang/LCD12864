@@ -20,24 +20,24 @@ extern "C" {
 #include <stdio.h>
 #include <wiringPi.h>
 
-#define true                1
-#define false               0
-#define ENABLE              1
-#define DISABLE             0
+#define true                (1)
+#define false               (0)
+#define ENABLE              (1)
+#define DISABLE             (0)
 //树莓派gpio口对应位
 //LCD12864 控制
-#define LCD_RS              3
-#define LCD_RW              4
-#define LCD_EN              5
+#define LCD_RS              (3)
+#define LCD_RW              (4)
+#define LCD_EN              (5)
 //LCD12864 数据
-#define D1                  21
-#define D2                  22
-#define D3                  23
-#define D4                  24
-#define D5                  25
-#define D6                  26
-#define D7                  27
-#define D8                  28
+#define D1                  (21)
+#define D2                  (22)
+#define D3                  (23)
+#define D4                  (24)
+#define D5                  (25)
+#define D6                  (26)
+#define D7                  (27)
+#define D8                  (28)
 //arm 编译器 32位
 typedef unsigned int        u32;
 typedef unsigned short      u16;
