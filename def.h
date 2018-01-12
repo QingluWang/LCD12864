@@ -14,7 +14,7 @@
 #define _DEF_H
 
 #ifdef __cplusplus
-extern "C"{
+extern "C" {
 #endif
 
 #include <stdio.h>
