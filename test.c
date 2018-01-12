@@ -5,6 +5,5 @@
 int main(){
     wiringPiSetup();
     printf("heheda\n");
-    wiringPiSetup();
     return 0;
 }
