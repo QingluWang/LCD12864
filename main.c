@@ -28,14 +28,18 @@ void BusWrite(u8 data){
     digitalWrite(D8,t[7]);
 }
 void ChkBusy(){
-    digitalWrite(LCD_RS,DISABLE);
-    digitalWrite(LCD_RW,ENABLE);
-    digitalWrite(LCD_EN,DISABLE);
-    BusWrite(0xff);
-    pinMode(D8, INPUT);
-    while(digitalRead(D8));//lcd12864不忙时D8为低电平
-    pinMode(D8, OUTPUT);
-    digitalWrite(LCD_EN,DISABLE);
+    while(1){
+        digitalWrite(LCD_RS,DISABLE);
+        digitalWrite(LCD_RW,ENABLE);
+        digitalWrite(LCD_EN,DISABLE);
+        BusWrite(0xff);
+        digitalWrite(LCD_EN,ENABLE);
+        pinMode(D8, INPUT);
+        if(digitalRead(D8)==0){
+            pinMode(D8, OUTPUT);
+            break;//lcd12864不忙时D8为低电平
+        }
+    }
 }
 void WriteCmd(u8 cmdCode){
     digitalWrite(LCD_RS,DISABLE);
