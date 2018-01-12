@@ -58,9 +58,9 @@ void WriteData(u8 dispData){
 }
 void WriteWord(u8 pos,unsigned char* data){
     WriteCmd(pos);
-    printf("nmd\n");
+    printf("%s\n",data);
     while(*data > 0){
-        WriteData(*data);
+        //WriteData(*data);
         data++;
     }
 }
