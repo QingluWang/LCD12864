@@ -13,9 +13,6 @@
 #ifndef _DEF_H
 #define _DEF_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #include <stdio.h>
 #include <wiringPi.h>
@@ -50,8 +47,6 @@ typedef signed char         s8;
 typedef float               fp32;
 typedef double              fp64;
 
-#ifdef __cplusplus
-}
-#endif
+
 
 #endif
