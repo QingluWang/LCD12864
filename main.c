@@ -87,8 +87,10 @@ void Init(){
     delay(5);
     WriteCmd(0x30);
     delay(5);
+    ChkBusy();
     WriteCmd(0x01);
     delay(20);
+    ChkBusy();
     WriteCmd(0x0c);
     delay(20);
 }
