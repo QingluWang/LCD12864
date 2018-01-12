@@ -88,6 +88,7 @@ void Init(){
     printf("5");
 }
 int main(){
+    printf("0");
     wiringPiSetup();
     Init();
 
