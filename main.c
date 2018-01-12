@@ -89,7 +89,7 @@ void Init(){
 }
 int main(){
     printf("0");
-    //wiringPiSetup();
+    wiringPiSetup();
     //Init();
 
     //WriteCmd(0x01);
