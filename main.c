@@ -12,6 +12,7 @@
 **************************************************************************************/
 #include "def.h"
 
+u32 hehehe = 0;
 void BusWrite(u8 data){
     int t[10],i;
     for(i = 0; i < 8; i++){
@@ -51,18 +52,16 @@ void WriteCmd(u8 cmdCode){
     delay(5);
 }
 void WriteData(u8 dispData){
-    printf("1\n");
     ChkBusy();
-    printf("2\n");
     digitalWrite(LCD_RS,ENABLE);
     digitalWrite(LCD_RW,DISABLE);
     digitalWrite(LCD_EN,ENABLE);
-    printf("3\n");
     delay(5);
     BusWrite(dispData);
-    printf("4\n");
     digitalWrite(LCD_EN,DISABLE);
     delay(5);
+    printf("%d\n",hehehe);
+    hehehe++;
 }
 void WriteWord(u8 pos,unsigned char* data){
     WriteCmd(pos);
@@ -99,7 +98,9 @@ int main(){
     Init();
 
     WriteCmd(0x01);
-    WriteWord(0x80,"Hello,wql");
-    while(1);
+    while(1){
+        WriteWord(0x80,"Hello,wql");
+    }
+    
     return 0;
 }
