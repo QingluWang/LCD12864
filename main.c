@@ -30,7 +30,7 @@ void BusWrite(u8 data){
 void ChkBusy(){
     digitalWrite(LCD_RS,DISABLE);
     digitalWrite(LCD_RW,ENABLE);
-    digitalWrite(LCD_EN,ENABLE);
+    digitalWrite(LCD_EN,DISABLE);
     BusWrite(0xff);
     pinMode(D8, INPUT);
     while(digitalRead(D8));//lcd12864不忙时D8为低电平
