@@ -98,5 +98,6 @@ int main(){
 
     WriteCmd(0x01);
     WriteWord(0x80,"Hello,wql");
+    while(1);
     return 0;
 }
