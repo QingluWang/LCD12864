@@ -64,7 +64,7 @@ void WriteWord(u8 pos,unsigned char* data){
     }
 }
 void Init(){
-    print("1");
+    printf("1");
     pinMode(D1, OUTPUT);
     pinMode(D2, OUTPUT);
     pinMode(D3, OUTPUT);
@@ -76,16 +76,16 @@ void Init(){
     pinMode(LCD_RS, OUTPUT);    
     pinMode(LCD_RW, OUTPUT);    
     pinMode(LCD_EN, OUTPUT);
-    print("2");
+    printf("2");
     WriteCmd(0x38);
     delay(20);
-    print("3");
+    printf("3");
     WriteCmd(0x01);
     delay(20);
-    print("4");
+    printf("4");
     WriteCmd(0x0c);
     delay(20);
-    print("5");
+    printf("5");
 }
 int main(){
     wiringPiSetup();
