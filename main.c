@@ -90,7 +90,7 @@ void Init(){
 int main(){
     printf("0");
     wiringPiSetup();
-    //Init();
+    Init();
 
     //WriteCmd(0x01);
     //WriteWord(0x80,"Hello,wql");
