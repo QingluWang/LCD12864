@@ -60,6 +60,7 @@ void WriteWord(u8 pos,unsigned char* data){
     WriteCmd(pos);
     while(*data > 0){
         WriteData(*data);
+        printf("%c\n",*data);
         data++;
     }
 }
