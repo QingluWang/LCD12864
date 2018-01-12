@@ -88,6 +88,6 @@ int main(){
     Init();
 
     WriteCmd(0x01);
-    //WriteWord(0x80,"Hello,wql");
+    WriteWord(0x80,"Hello,wql");
     return 0;
 }
