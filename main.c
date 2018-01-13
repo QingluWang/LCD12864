@@ -29,39 +29,43 @@ void BusWrite(u8 data){
     digitalWrite(D8,t[7]);
 }
 void ChkBusy(){
-    while(1){
-        digitalWrite(LCD_RS,DISABLE);
+        u8 a;
+        digitalWrite(LCD_RS,DISABLED);
         digitalWrite(LCD_RW,ENABLE);
-        digitalWrite(LCD_EN,DISABLE);
+        digitalWrite(LCD_EN,DISABLED);
         BusWrite(0xff);
         digitalWrite(LCD_EN,ENABLE);
         pinMode(D8, INPUT);
-        if(digitalRead(D8)==0){
-            pinMode(D8, OUTPUT);
-            break;//lcd12864不忙时D8为低电平
+        while(1){
+            digitalWrite(LCD_EN,DISABLED);
+            if(digitalRead(D8)==0){
+                break;//lcd12864不忙时D8为低电平
+            }
+            digitalWrite(LCD_EN,ENABLE);
+            a++;
+            if(a>10){
+                break;//防止陷入死循环
+            }
         }
-    }
+        pinMode(D8, OUTPUT);
 }
 void WriteCmd(u8 cmdCode){
-    digitalWrite(LCD_RS,DISABLE);
-    digitalWrite(LCD_RW,DISABLE);
+    ChkBusy();
+    digitalWrite(LCD_RS,DISABLED);
+    digitalWrite(LCD_RW,DISABLED);
     digitalWrite(LCD_EN,ENABLE);
-    delay(5);
     BusWrite(cmdCode);
-    digitalWrite(LCD_EN,DISABLE);
-    delay(5);
+    digitalWrite(LCD_EN,DISABLED);
+    delay_us(1);
 }
 void WriteData(u8 dispData){
     ChkBusy();
     digitalWrite(LCD_RS,ENABLE);
-    digitalWrite(LCD_RW,DISABLE);
+    digitalWrite(LCD_RW,DISABLED);
     digitalWrite(LCD_EN,ENABLE);
-    delay(5);
     BusWrite(dispData);
-    digitalWrite(LCD_EN,DISABLE);
-    delay(5);
-    printf("%d\n",hehehe);
-    hehehe++;
+    digitalWrite(LCD_EN,DISABLED);
+    delay_us(1);
 }
 void WriteWord(u8 pos,unsigned char* data){
     WriteCmd(pos);
@@ -83,21 +87,15 @@ void Init(){
     pinMode(LCD_RW, OUTPUT);    
     pinMode(LCD_EN, OUTPUT);
     WriteCmd(0x30);
-    delay(5);
-    WriteCmd(0x30);
-    delay(5);
-    ChkBusy();
+    delay_us(4);
+    WriteCmd(0x0c);
+    delay_us(10);
     WriteCmd(0x01);
-    delay(20);
-    ChkBusy();
-    //WriteCmd(0x0c);
-    delay(20);
+    delay(10);
 }
 int main(){
     wiringPiSetup();
     Init();
-
-    WriteCmd(0x01);
     while(1){
         WriteWord(0x80,"Hello,wql");
     }

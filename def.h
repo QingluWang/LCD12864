@@ -23,7 +23,7 @@ extern "C" {
 #define true                (1)
 #define false               (0)
 #define ENABLE              (1)
-#define DISABLE             (0)
+#define DISABLED            (0)
 //树莓派gpio口对应位
 //LCD12864 控制
 #define LCD_RS              (3)
@@ -38,6 +38,9 @@ extern "C" {
 #define D6                  (26)
 #define D7                  (27)
 #define D8                  (28)
+//函数更名
+#define delay_ms            delay
+#define delay_us            delayMicroseconds
 //arm 编译器 32位
 typedef unsigned int        u32;
 typedef unsigned short      u16;
