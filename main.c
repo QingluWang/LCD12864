@@ -88,6 +88,7 @@ void WriteWord(u8 pos,unsigned char* data){
     WriteData(teststr[1]);
     WriteData(teststr[2]);
     WriteData(teststr[3]);
+    printf("1\n");
 }
 void Init(){
     pinMode(D1, OUTPUT);
