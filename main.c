@@ -80,10 +80,14 @@ void WriteData(u8 dispData){
 }
 void WriteWord(u8 pos,unsigned char* data){
     WriteCmd(pos);
-    while(*data >= 0){
-        WriteData(*data);
-        data++;
-    }
+    //while(*data >= 0){
+    //    WriteData(*data);
+    //    data++;
+    //}
+    WriteData(teststr[0]);
+    WriteData(teststr[1]);
+    WriteData(teststr[2]);
+    WriteData(teststr[3]);
 }
 void Init(){
     pinMode(D1, OUTPUT);
