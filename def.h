@@ -26,9 +26,9 @@ extern "C" {
 #define DISABLED            (0)
 //树莓派gpio口对应位
 //LCD12864 控制
-#define LCD_RS              (3)
-#define LCD_RW              (4)
-#define LCD_EN              (5)
+#define LCD_RS              (0)
+#define LCD_RW              (2)
+#define LCD_EN              (3)
 //LCD12864 数据
 #define D1                  (21)
 #define D2                  (22)
