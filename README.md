@@ -1,2 +1,2 @@
 # LCD12864
-LCD12864 driver on raspberrypi
+树莓派LCD12864字符显示
